@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
-    <head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">
+    <head th:replace="layout/plantilla :: head">
         <title>Techshop</title>
-        <meta charset="UTF-8">
-            <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
         <div class="contenido">
-            <h2>Listado de Clientes</h2>
+            <h2>Listado de Categorias</h2>
             <a th:href="@{/categoria/nuevo}">Nueva Categoria</a>
             <div th:if="${categorias != null and !categorias.empty}"> 
                 <table border="1">
@@ -16,6 +16,8 @@
                         <tr>
                             <th>Descripcion</th>
                             <th>Activa</th>
+                            <th>Eliminar</th>
+                            <th>Modificar</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -39,8 +39,9 @@ public class ArticuloController {
         return "redirect:/articulo/listado";
     }
 
-    @GetMapping("/articulo/modificar{idArticulo}")
+    @GetMapping("/articulo/modificar/{idArticulo}")
     public String modificarArticulo(Articulo articulo, Model model) {
+
         var categorias = categoriaService.getCategorias(true);
         model.addAttribute("categorias", categorias);
         
@@ -50,7 +51,7 @@ public class ArticuloController {
 
     }
 
-    @GetMapping("/articulo/eliminar{idArticulo}")
+    @GetMapping("/articulo/eliminar/{idArticulo}")
     public String eliminarArticulo(Articulo articulo) {
         articuloService.delete(articulo);
         return "redirect:/articulo/listado";

@@ -23,7 +23,7 @@ public class CategoriaController {
         return "/categoria/listado";
     }
 
-    @GetMapping("/categoria/nuevo")
+    @GetMapping("/categoria/nueva")
     public String nuevoCategoria(Categoria categoria) {
         return "/categoria/modificar";
     }
@@ -34,7 +34,7 @@ public class CategoriaController {
         return "redirect:/categoria/listado";
     }
 
-    @GetMapping("/categoria/modificar{idCategoria}")
+    @GetMapping("/categoria/modificar/{idCategoria}")
     public String modificarCategoria(Categoria categoria, Model model) {
         categoria = categoriaService.getCategoria(categoria);
         model.addAttribute("categoria", categoria);
@@ -42,7 +42,7 @@ public class CategoriaController {
 
     }
 
-    @GetMapping("/categoria/eliminar{idCategoria}")
+    @GetMapping("/categoria/eliminar/{idCategoria}")
     public String eliminarCategoria(Categoria categoria) {
         categoriaService.delete(categoria);
         return "redirect:/categoria/listado";

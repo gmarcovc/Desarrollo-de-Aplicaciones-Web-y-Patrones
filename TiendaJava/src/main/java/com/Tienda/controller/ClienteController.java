@@ -1,6 +1,7 @@
 package com.Tienda.controller;
 
 import com.Tienda.domain.Cliente;
+import com.Tienda.domain.Credito;
 import com.Tienda.service.ClienteService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +16,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ClienteController {
     @Autowired
     private ClienteService clienteService;
-    
+
     @GetMapping("/cliente/listado")
     public String inicio(Model model) {
         var clientes = clienteService.getClientes();
+        
+        var limiteTotal=0;
+        for (var c: clientes) {
+            limiteTotal+=c.credito.limite;
+        }
+        model.addAttribute("limiteTotal", limiteTotal);
+        model.addAttribute("totalClientes", clientes.size());
+        
         model.addAttribute("clientes", clientes);
         return "/cliente/listado";
     }
@@ -34,7 +43,7 @@ public class ClienteController {
         return "redirect:/cliente/listado";
     }
 
-    @GetMapping("/cliente/modificar{idCliente}")
+    @GetMapping("/cliente/modificar/{idCliente}")
     public String modificarCliente(Cliente cliente, Model model) {
         cliente = clienteService.getCliente(cliente);
         model.addAttribute("cliente", cliente);
@@ -42,10 +51,9 @@ public class ClienteController {
 
     }
 
-    @GetMapping("/cliente/eliminar{idCliente}")
+    @GetMapping("/cliente/eliminar/{idCliente}")
     public String eliminarCliente(Cliente cliente) {
         clienteService.delete(cliente);
         return "redirect:/cliente/listado";
     }
-    
 }

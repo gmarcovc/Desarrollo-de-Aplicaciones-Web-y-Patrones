@@ -20,7 +20,7 @@ public class Credito implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name="id_credito")
     private Long idCredito;
-    private double limite;
+    public double limite;//private double limite;
     //esto hace que se pueda llamar la columna de la
     //DB y ponerle otro nombre en el proyecto Java si se deseara
 
