@@ -16,8 +16,8 @@
                         <tr>
                             <th th:text="#{categoria.descripcion}">Descripcion</th>
                             <th th:text="#{categoria.activo}">Activa</th>
-                            <th th:text="#{categoria.eliminar}">Eliminar</th>
-                            <th th:text="#{categoria.actualizar}">Modificar</th>
+                            <th th:text="#{accion.eliminar}">Eliminar</th>
+                            <th th:text="#{accion.actualizar}">Modificar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,9 +25,9 @@
                             <td th:text="${categoria.descripcion}"></td>
                             <td> <input type="checkbox" name="activa" th:checked="${categoria.activo}" disabled="true"></td>
                             <td><a th:href="@{/categoria/eliminar/} + ${categoria.idCategoria}"
-                                   th:text="#{categoria.eliminar}">Eliminar</a></td>
+                                   th:text="#{accion.eliminar}">Eliminar</a></td>
                             <td><a th:href="@{/categoria/modificar/} + ${categoria.idCategoria}"
-                                   th:text="#{categoria.actualizar}">Modificar</a></td>
+                                   th:text="#{accion.actualizar}">Modificar</a></td>
                         </tr>
                     </tbody>
                 </table>

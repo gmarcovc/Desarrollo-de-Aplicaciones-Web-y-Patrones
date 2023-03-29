@@ -1,13 +1,6 @@
 package com.Tienda.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import lombok.Data;
 
@@ -31,7 +24,7 @@ public class Cliente implements Serializable {
     //Y asi lo podemos juntar a la tabla
     @JoinColumn(name = "id_credito", referencedColumnName = "id_credito")
     @ManyToOne
-    public Credito credito; //private Credito credito;
+    private Credito credito;
 
     public Cliente() {
     }

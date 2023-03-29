@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://thymeleaf.org/extras/spring-security">
-    <head>
+    <head th:replace="layout/plantilla :: head">
         <title>Techshop</title>
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
         <div class="contenido">
-            <h2  th:text="#{categoria.datos}"> Datos de Cliente </h2>
+            <h2 th:text="#{categoria.datos}"> Datos de Cliente </h2>
             <a th:href="@{/categoria/listado}"  th:text="#{accion.regresar}">Regresar</a>
             <br/>
             <br/>

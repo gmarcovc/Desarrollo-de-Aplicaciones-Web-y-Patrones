@@ -14,12 +14,12 @@
                 <table border="1">
                     <thead>
                         <tr>
-                            <th th:text="#articulo.descripcion}">Descripcion</th>
-                            <th th:text="#articulo.precio}">Precio</th>
-                            <th th:text="#articulo.existencias}">Existencias</th>
-                            <th th:text="#articulo.activo}">Activa</th>
-                            <th th:text="#articulo.eliminar}">Eli</th>
-                            <th th:text="#articulo.actualizar}">Actu</th>
+                            <th th:text="#{articulo.descripcion}">Descripcion</th>
+                            <th th:text="#{articulo.precio}">Precio</th>
+                            <th th:text="#{articulo.existencias}">Existencias</th>
+                            <th th:text="#{articulo.activo}">Activa</th>
+                            <th th:text="#{accion.eliminar}">Eli</th>
+                            <th th:text="#{accion.actualizar}">Actu</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,7 +33,7 @@
                             <td><a th:href="@{/articulo/eliminar/} + ${articulo.idArticulo}"
                                    th:text="#{accion.eliminar}">Eliminar</a></td>
                             <td><a th:href="@{/articulo/modificar/} + ${articulo.idArticulo}"
-                                   th:text="#{accion.modificar}">Modificar</a></td>
+                                   th:text="#{accion.actualizar}">Modificar</a></td>
                         </tr>
                     </tbody>
                 </table>

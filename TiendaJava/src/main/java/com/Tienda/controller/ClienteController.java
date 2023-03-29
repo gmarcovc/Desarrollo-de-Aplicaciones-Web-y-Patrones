@@ -23,7 +23,7 @@ public class ClienteController {
         
         var limiteTotal=0;
         for (var c: clientes) {
-            limiteTotal+=c.credito.limite;
+            limiteTotal+=c.getCredito().getLimite();
         }
         model.addAttribute("limiteTotal", limiteTotal);
         model.addAttribute("totalClientes", clientes.size());

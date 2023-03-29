@@ -1,11 +1,6 @@
 package com.Tienda.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import lombok.Data;
 
@@ -20,7 +15,7 @@ public class Credito implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name="id_credito")
     private Long idCredito;
-    public double limite;//private double limite;
+    private double limite;
     //esto hace que se pueda llamar la columna de la
     //DB y ponerle otro nombre en el proyecto Java si se deseara
 
