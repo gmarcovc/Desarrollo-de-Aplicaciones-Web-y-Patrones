@@ -8,32 +8,38 @@
     <body>
         <header th:replace="layout/plantilla :: header"/>
         <div class="contenido">
-            <h2>Listado de Articulos</h2>
-            <a th:href="@{/articulo/nuevo}">Nuevo Articulo</a>
+            <h2 th:text="#{articulo.titulo}">Listado de Articulos</h2>
+            <a th:href="@{/articulo/nuevo}" th:text="#{articulo.nuevo}">Nuevo Articulo</a>
             <div th:if="${articulos != null and !articulos.empty}"> 
                 <table border="1">
                     <thead>
                         <tr>
-                            <th>Descripcion</th>
-                            <th>Precio</th>
-                            <th>Existencias</th>
-                            <th>Activa</th>
+                            <th th:text="#articulo.descripcion}">Descripcion</th>
+                            <th th:text="#articulo.precio}">Precio</th>
+                            <th th:text="#articulo.existencias}">Existencias</th>
+                            <th th:text="#articulo.activo}">Activa</th>
+                            <th th:text="#articulo.eliminar}">Eli</th>
+                            <th th:text="#articulo.actualizar}">Actu</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="articulo : ${articulos}">
                             <td th:text="${articulo.descripcion}"></td>
-                            <td th:text="${#numbers.formatDecimal(articulo.precio,3,2)}" style="text-align: right"></td>
-                            <td th:text="${articulo.existencias}" style="text-align: center"></td>
+                            <td th:text="${#numbers.formatDecimal(articulo.precio,3,2)}" 
+                                style="text-align: right"></td>
+                            <td th:text="${articulo.existencias}" 
+                                style="text-align: center"></td>
                             <td> <input type="checkbox" name="activa" th:checked="${articulo.activo}" disabled="true"></td>
-                            <td><a th:href="@{/articulo/eliminar/} + ${articulo.idArticulo}">Eliminar</a></td>
-                            <td><a th:href="@{/articulo/modificar/} + ${articulo.idArticulo}">Modificar</a></td>
+                            <td><a th:href="@{/articulo/eliminar/} + ${articulo.idArticulo}"
+                                   th:text="#{accion.eliminar}">Eliminar</a></td>
+                            <td><a th:href="@{/articulo/modificar/} + ${articulo.idArticulo}"
+                                   th:text="#{accion.modificar}">Modificar</a></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <div th:if="${articulos == null or articulos.empty}">
-                No tenemos articulos que mostrar...
+                <p th:text="#{articulo.no_mostrar}">No tenemos articulos que mostrar</p>
             </div>
         </div>
         <footer th:replace="layout/plantilla :: footer"/>
