@@ -46,7 +46,7 @@
                                         <tr th:each="cliente, contador : ${clientes}">
                                             <td>[[${contador.count}]]</td>
                                             <td>[[${cliente.nombre} + ' ' + ${cliente.apellidos}]]</td>
-                                            <td class="text-end">[[${new java.text.DecimalFormat('$#,##0.00').format(cliente.credito.limite)}]]</td>
+                                            <td class="text-end">¢[[${#numbers.formatDecimal(cliente.credito.limite, 1, 'DEFAULT', 2, 'DEFAULT')}]]</td>
                                             <td>
                                                 <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/cliente/eliminar/}+${cliente.idCliente}"
                                                    class="btn btn-danger">
@@ -74,7 +74,7 @@
                             <div class="card-body">
                                 <h3 th:text="#{cliente.limiteTotal}">Límite Total</h3>
                                 <h4 class="display-4">
-                                    [[${new java.text.DecimalFormat('$#,##0.00').format(limiteTotal)}]]
+                                    ¢[[${#numbers.formatDecimal(limiteTotal, 1, 'DEFAULT', 2, 'DEFAULT')}]]
                                 </h4>
                             </div>
                         </div>
