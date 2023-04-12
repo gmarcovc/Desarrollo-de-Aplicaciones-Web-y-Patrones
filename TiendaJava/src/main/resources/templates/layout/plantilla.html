@@ -61,6 +61,15 @@
                             </li>                            
                         </ul>
                     </div>
+                    <div> 
+                        <ul sec:authorize="isAuthenticated()" class="navbar-nav ml-auto" th:if="${esCliente != null and esCliente}"> <li class="nav-item mr-3"> 
+                                <a th:href="@{/carrito/listado}" class="nav-link"> 
+                                    <i class="fas fa-shopping-cart"></i> 
+                                    <span th:text="${cantidadArticulosCarrito}" class="btn btn-danger">Cantidad</span> 
+                                </a> 
+                            </li> 
+                        </ul> 
+                    </div>
                 </div>
             </nav>
             <section id="main-header" class="py-2 bg-success text-white">

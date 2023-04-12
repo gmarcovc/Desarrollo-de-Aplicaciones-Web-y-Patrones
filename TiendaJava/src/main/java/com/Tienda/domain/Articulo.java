@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.Tienda.domain;
 
 import jakarta.persistence.*;
@@ -16,6 +12,7 @@ public class Articulo implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_articulo")
     private Long idArticulo;
     private Long idCategoria;
     private String descripcion;
